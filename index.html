@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Grupo oficial no Telegram | Versus Bet</title>
+<meta name="description" content="Canal oficial de comunicação da Versus Bet no Telegram. Conteúdo destinado exclusivamente a maiores de 18 anos.">
+<meta name="theme-color" content="#000000">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   PALETA VERSUS BET
+   --brand = aqua da logo VS
+   --cta   = verde-limão dos botões (REGISTRAR / APOSTE AQUI)
+   ========================================================= */
+:root{
+  --brand:      #2DE8C9;
+  --brand-dark: #16C7A9;
+  --cta:        #DFFF3E;
+  --cta-dark:   #C9EB25;
+  --cta-text:   #0A0F0D;
+
+  --ink:   #000000;
+  --panel: #0C100F;
+  --line:  #1E2724;
+  --txt:   #FFFFFF;
+  --muted: #8B9691;
+
+  --warn-bg: #FFFFFF;
+  --warn-tx: #0A0A0A;
+
+  --radius: 16px;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html{-webkit-text-size-adjust:100%}
+
+body{
+  background:var(--ink);
+  color:var(--txt);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+  line-height:1.55;
+  min-height:100vh;
+  padding-bottom:140px; /* espaço da tarja fixa de advertência */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  overflow-x:hidden;
+}
+
+/* brilho verde do fundo, como no site */
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(760px 420px at 50% -8%, rgba(45,232,201,.20), transparent 64%),
+    radial-gradient(520px 380px at 100% 22%, rgba(22,199,169,.12), transparent 66%);
+}
+
+.wrap{
+  position:relative; z-index:1;
+  width:100%; max-width:560px;
+  padding:26px 20px 40px;
+}
+
+/* ---------- topo ---------- */
+.brandbar{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; margin-bottom:36px;
+}
+.lockup{display:flex; align-items:center; gap:10px}
+/* Troque o bloco .mark + .wordmark por: <img src="logo.svg" alt="Versus Bet" height="28"> */
+.mark{
+  font-family:'Anton',Impact,sans-serif; font-size:26px;
+  color:var(--brand); letter-spacing:-1px; line-height:1;
+}
+.wordmark{
+  font-family:'Anton',Impact,sans-serif;
+  font-size:19px; letter-spacing:1.6px; text-transform:uppercase; line-height:1;
+}
+.wordmark small{
+  display:block; font-family:'Inter',sans-serif; font-weight:700;
+  font-size:8.5px; letter-spacing:2.2px; color:var(--muted); margin-top:3px;
+}
+
+.age-chip{
+  font-size:11px; font-weight:900; letter-spacing:.8px;
+  border:1.5px solid var(--brand); color:var(--brand);
+  border-radius:999px; padding:5px 11px; white-space:nowrap;
+}
+
+/* ---------- marca x telegram ---------- */
+.faceoff{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  gap:10px;
+  margin-bottom:32px;
+}
+.tile{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:22px 10px;
+  text-align:center;
+}
+.tile--brand{border-top:3px solid var(--brand)}
+.tile--tg{border-top:3px solid #2F3A36}
+.tile span{
+  display:block; font-size:10.5px; letter-spacing:1.4px;
+  text-transform:uppercase; color:var(--muted); margin-top:8px;
+}
+.tile b{
+  font-family:'Anton',Impact,sans-serif; font-weight:400;
+  font-size:22px; letter-spacing:.5px;
+}
+.tile--brand b{color:var(--brand)}
+.tile--tg b{color:var(--txt)}
+
+.meter{position:relative; width:86px; height:86px; flex:none}
+.meter svg{display:block}
+.meter circle{fill:none; stroke:var(--line); stroke-width:5}
+.meter .label{
+  position:absolute; inset:0;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Anton',Impact,sans-serif; font-size:25px;
+  color:var(--cta);
+}
+
+/* ---------- texto ---------- */
+h1{
+  font-family:'Anton',Impact,sans-serif; font-weight:400;
+  font-size:clamp(30px,8.4vw,40px);
+  line-height:1.02; text-transform:uppercase; letter-spacing:.5px;
+  margin-bottom:14px;
+}
+h1 em{color:var(--brand); font-style:normal}
+.lead{color:#C3CCC8; font-size:15.5px; margin-bottom:24px}
+
+.list{list-style:none; display:grid; gap:1px; background:var(--line);
+  border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-bottom:26px}
+.list li{
+  background:var(--panel); padding:14px 16px;
+  font-size:14.5px; display:flex; gap:12px; align-items:flex-start;
+}
+.list li::before{
+  content:""; flex:none; width:3px; height:17px; margin-top:3px;
+  background:var(--brand); border-radius:2px;
+}
+.list li b{font-weight:700}
+.list li small{display:block; color:var(--muted); font-size:12.5px; margin-top:2px}
+
+/* ---------- cta (verde-limão da plataforma) ---------- */
+.cta{
+  display:block; width:100%; border:0; cursor:pointer;
+  background:var(--cta); color:var(--cta-text);
+  font-family:'Inter',sans-serif; font-weight:900; font-size:17px;
+  letter-spacing:.3px; text-transform:uppercase;
+  padding:19px 16px; border-radius:12px;
+  text-align:center; text-decoration:none;
+  transition:background .18s ease, transform .12s ease;
+}
+.cta:hover{background:var(--cta-dark)}
+.cta:active{transform:translateY(1px)}
+
+.status{
+  text-align:center; font-size:12.5px; color:var(--muted);
+  margin-top:12px; min-height:18px;
+}
+
+/* aviso de notificação */
+.pushnote{
+  display:none;
+  margin-top:14px; padding:12px 14px;
+  background:var(--panel); border:1px solid var(--line);
+  border-left:3px solid var(--brand);
+  border-radius:10px; font-size:12.5px; color:#B4BEBA;
+}
+.pushnote[data-show="true"]{display:block}
+.pushnote[data-state="ok"]{border-left-color:var(--cta)}
+.pushnote b{color:var(--txt); font-weight:700}
+
+/* ---------- rodapé legal ---------- */
+.legal{
+  margin-top:34px; padding-top:20px; border-top:1px solid var(--line);
+  font-size:11.5px; line-height:1.7; color:var(--muted);
+}
+.legal p+p{margin-top:9px}
+.legal strong{color:#B4BEBA}
+.legal a{color:var(--muted)}
+
+/* ---------- tarja de advertência (mín. 10% da peça) ---------- */
+.warning{
+  position:fixed; left:0; right:0; bottom:0; z-index:50;
+  background:var(--warn-bg); color:var(--warn-tx);
+  border-top:4px solid var(--brand);
+  padding:14px 16px;
+}
+.warnrow{
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  max-width:560px; margin:0 auto;
+}
+.badge18{
+  flex:none; width:44px; height:44px; border-radius:50%;
+  border:2.5px solid var(--warn-tx);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:15px; letter-spacing:-.5px;
+}
+.warntext p{
+  font-weight:900; text-transform:uppercase;
+  font-size:clamp(12.5px,3.4vw,15px); line-height:1.3; letter-spacing:.2px;
+}
+.warntext small{
+  display:block; margin-top:4px; font-weight:700;
+  font-size:10.5px; text-transform:uppercase; letter-spacing:.3px; color:#3A3A3A;
+}
+
+:focus-visible{outline:3px solid var(--cta); outline-offset:3px; border-radius:4px}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important}
+}
+@media (max-width:360px){
+  .tile b{font-size:18px}
+  .meter{width:74px;height:74px}
+  .badge18{width:38px;height:38px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <header class="brandbar">
+    <div class="lockup">
+      <div class="mark">VS</div>
+      <div class="wordmark">VERSUS<small>CASA DE APOSTAS OFICIAL</small></div>
+    </div>
+    <div class="age-chip">+18</div>
+  </header>
+
+  <section class="faceoff" aria-hidden="true">
+    <div class="tile tile--brand"><b>VERSUS</b><span>sua conta</span></div>
+
+    <div class="meter">
+      <svg width="86" height="86" viewBox="0 0 86 86">
+        <circle cx="43" cy="43" r="39"></circle>
+      </svg>
+      <div class="label">VS</div>
+    </div>
+
+    <div class="tile tile--tg"><b>TELEGRAM</b><span>grupo oficial</span></div>
+  </section>
+
+  <h1>Entre no <em>grupo oficial</em> da Versus no Telegram</h1>
+
+  <p class="lead">Canal de comunicação da Versus Bet. Conteúdo exclusivo para maiores de 18 anos.</p>
+
+  <ul class="list">
+    <li><div><b>Promoções divulgadas diariamente</b><small>Cada promoção tem regulamento próprio, com prazo e condições de participação.</small></div></li>
+    <li><div><b>Sorteios com regulamento publicado</b><small>Participação gratuita e voluntária, sujeita às regras de cada ação.</small></div></li>
+    <li><div><b>Avisos de manutenção e novidades da plataforma</b><small>Comunicados oficiais direto da equipe.</small></div></li>
+    <li><div><b>Canal de atendimento e jogo responsável</b><small>Orientação sobre limites de depósito, pausa e autoexclusão.</small></div></li>
+  </ul>
+
+  <a href="https://t.me/promosversusbet" class="cta" id="cta" role="button">Entrar no grupo do Telegram</a>
+
+  <p class="status" id="status" aria-live="polite"></p>
+
+  <div class="pushnote" id="pushnote" data-show="false" data-state="ask">
+    <b>Ative as notificações</b> para receber os avisos de promoção pelo navegador. Depois, toque no botão acima para entrar no grupo.
+  </div>
+
+  <footer class="legal">
+    <p><strong>Proibido para menores de 18 anos.</strong> Apostas envolvem risco de perda financeira e podem causar dependência. Jogue com responsabilidade e aposte apenas o que você pode perder.</p>
+    <p>Apostar não é fonte de renda, investimento ou solução para dificuldades financeiras. Não há garantia de ganho.</p>
+    <p>Se as apostas estiverem afetando sua vida, você pode definir limites, pausar ou solicitar <a href="https://versus.bet.br/jogo-responsavel">autoexclusão</a> a qualquer momento. Apoio gratuito: <a href="https://jogadoresanonimos.com.br">Jogadores Anônimos Brasil</a>.</p>
+    <p>Versus Bet — <strong>[RAZÃO SOCIAL LTDA]</strong>, CNPJ <strong>[00.000.000/0001-00]</strong>. Autorizada pela <strong>Portaria SPA/MF nº 474/2025</strong>. <a href="https://versus.bet.br/termos">Termos de uso</a> · <a href="https://versus.bet.br/privacidade">Privacidade</a> · <a href="https://versus.bet.br/promocoes">Regulamento das promoções</a></p>
+    <p>Comunicação de caráter publicitário. Este grupo não é operado pelo Telegram.</p>
+  </footer>
+
+</main>
+
+<aside class="warning" role="note">
+  <div class="warnrow">
+    <div class="badge18" aria-hidden="true">18+</div>
+    <div class="warntext">
+      <p id="mfWarning">Ministério da Fazenda adverte: Aposta não é investimento</p>
+      <small>Proibido para menores de 18 anos · Autorizada pela Portaria SPA/MF nº 474/2025</small>
+    </div>
+  </div>
+</aside>
+
+<!-- start webpushr tracking code -->
+<script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";
+fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));
+webpushr('setup',{'key':'BILoiNZJKbeNTYHcRZAHidpvVZTkmGgJULuAchGBWPit65X6cXDotq1_X-UyzyvMddsDjwIUc8mJ6WEuorHAS10', 'integration':'popup'  });</script>
+<!-- end webpushr tracking code -->
+
+<script>
+/* =========================================================
+   CONFIGURAÇÃO
+   ========================================================= */
+const CONFIG = {
+  // Link do grupo
+  telegramUrl: "https://t.me/promosversusbet",
+
+  // Abrir o Telegram em nova aba (mantém esta página aberta)
+  novaAba: false,
+
+  // Advertência oficial (Portaria SPA/MF nº 1.964/2026).
+  // Use exatamente uma destas três:
+  //   "Apostar pode causar dependência"
+  //   "Apostar faz você perder dinheiro"
+  //   "Aposta não é investimento"
+  // Deixe "auto" para alternar entre as três a cada carregamento.
+  advertencia: "Aposta não é investimento"
+};
+
+/* --------- advertência --------- */
+const FRASES = [
+  "Apostar pode causar dependência",
+  "Apostar faz você perder dinheiro",
+  "Aposta não é investimento"
+];
+(function setWarning(){
+  const escolhida = CONFIG.advertencia === "auto"
+    ? FRASES[Math.floor(Math.random() * FRASES.length)]
+    : CONFIG.advertencia;
+  document.getElementById("mfWarning").textContent =
+    "Ministério da Fazenda adverte: " + escolhida;
+})();
+
+/* --------- elementos --------- */
+const cta      = document.getElementById("cta");
+const statusEl = document.getElementById("status");
+const pushnote = document.getElementById("pushnote");
+
+cta.setAttribute("href", CONFIG.telegramUrl);
+
+/* --------- tracking --------- */
+function track(){
+  try{ if (typeof fbq === "function") fbq("track", "Contact"); }catch(e){}
+  try{ if (typeof gtag === "function") gtag("event", "telegram_join"); }catch(e){}
+  try{ if (window.dataLayer) window.dataLayer.push({event:"telegram_join"}); }catch(e){}
+}
+
+function irParaGrupo(){
+  track();
+  if (CONFIG.novaAba){
+    window.open(CONFIG.telegramUrl, "_blank", "noopener");
+  } else {
+    window.location.href = CONFIG.telegramUrl;
+  }
+}
+
+/* --------- permissão de notificação --------- */
+function permissao(){
+  try{
+    if (typeof Notification === "undefined") return "unsupported";
+    return Notification.permission; // "default" | "granted" | "denied"
+  }catch(e){ return "unsupported"; }
+}
+
+function pintarAviso(){
+  const p = permissao();
+
+  if (p === "granted"){
+    pushnote.setAttribute("data-show", "true");
+    pushnote.setAttribute("data-state", "ok");
+    pushnote.innerHTML = "<b>Notificações ativadas.</b> Agora toque no botão acima para entrar no grupo.";
+    return true;
+  }
+
+  if (p === "denied" || p === "unsupported"){
+    pushnote.setAttribute("data-show", "false");
+    return true;
+  }
+
+  pushnote.setAttribute("data-show", "true"); // popup do Webpushr ainda na tela
+  return false;
+}
+
+window.addEventListener("load", function(){
+  statusEl.textContent = "Toque no botão para abrir o Telegram.";
+
+  setTimeout(function(){
+    if (pintarAviso()) return;
+
+    let tentativas = 0;
+    const observa = setInterval(function(){
+      tentativas++;
+      if (pintarAviso() || tentativas >= 60) clearInterval(observa);
+    }, 1000);
+  }, 1200);
+});
+
+/* --------- clique manual --------- */
+cta.addEventListener("click", function(e){
+  e.preventDefault();
+  irParaGrupo();
+});
+</script>
+
+<!-- Meta Pixel — cole aqui o snippet do pixel Versus, se for rastrear a entrada.
+<script>
+!function(f,b,e,v,n,t,s){...}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','SEU_PIXEL_ID'); fbq('track','PageView');
+</script>
+-->
+
+</body>
+</html>
