@@ -8,6 +8,14 @@
 <meta name="description" content="Canal oficial de comunicação da Versus Bet no Telegram. Conteúdo destinado exclusivamente a maiores de 18 anos.">
 <meta name="theme-color" content="#000000">
 
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PCSMPZD6');</script>
+<!-- End Google Tag Manager -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -174,18 +182,6 @@ h1 em{color:var(--brand); font-style:normal}
   margin-top:12px; min-height:18px;
 }
 
-/* aviso de notificação */
-.pushnote{
-  display:none;
-  margin-top:14px; padding:12px 14px;
-  background:var(--panel); border:1px solid var(--line);
-  border-left:3px solid var(--brand);
-  border-radius:10px; font-size:12.5px; color:#B4BEBA;
-}
-.pushnote[data-show="true"]{display:block}
-.pushnote[data-state="ok"]{border-left-color:var(--cta)}
-.pushnote b{color:var(--txt); font-weight:700}
-
 /* ---------- rodapé legal ---------- */
 .legal{
   margin-top:34px; padding-top:20px; border-top:1px solid var(--line);
@@ -235,6 +231,11 @@ h1 em{color:var(--brand); font-style:normal}
 </head>
 <body>
 
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PCSMPZD6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <main class="wrap">
 
   <header class="brandbar">
@@ -273,10 +274,6 @@ h1 em{color:var(--brand); font-style:normal}
 
   <p class="status" id="status" aria-live="polite"></p>
 
-  <div class="pushnote" id="pushnote" data-show="false" data-state="ask">
-    <b>Ative as notificações</b> para receber os avisos de promoção pelo navegador. Depois, toque no botão acima para entrar no grupo.
-  </div>
-
   <footer class="legal">
     <p><strong>Proibido para menores de 18 anos.</strong> Apostas envolvem risco de perda financeira e podem causar dependência. Jogue com responsabilidade e aposte apenas o que você pode perder.</p>
     <p>Apostar não é fonte de renda, investimento ou solução para dificuldades financeiras. Não há garantia de ganho.</p>
@@ -296,12 +293,6 @@ h1 em{color:var(--brand); font-style:normal}
     </div>
   </div>
 </aside>
-
-<!-- start webpushr tracking code -->
-<script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";
-fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));
-webpushr('setup',{'key':'BILoiNZJKbeNTYHcRZAHidpvVZTkmGgJULuAchGBWPit65X6cXDotq1_X-UyzyvMddsDjwIUc8mJ6WEuorHAS10', 'integration':'popup'  });</script>
-<!-- end webpushr tracking code -->
 
 <script>
 /* =========================================================
@@ -340,7 +331,6 @@ const FRASES = [
 /* --------- elementos --------- */
 const cta      = document.getElementById("cta");
 const statusEl = document.getElementById("status");
-const pushnote = document.getElementById("pushnote");
 
 cta.setAttribute("href", CONFIG.telegramUrl);
 
@@ -360,45 +350,8 @@ function irParaGrupo(){
   }
 }
 
-/* --------- permissão de notificação --------- */
-function permissao(){
-  try{
-    if (typeof Notification === "undefined") return "unsupported";
-    return Notification.permission; // "default" | "granted" | "denied"
-  }catch(e){ return "unsupported"; }
-}
-
-function pintarAviso(){
-  const p = permissao();
-
-  if (p === "granted"){
-    pushnote.setAttribute("data-show", "true");
-    pushnote.setAttribute("data-state", "ok");
-    pushnote.innerHTML = "<b>Notificações ativadas.</b> Agora toque no botão acima para entrar no grupo.";
-    return true;
-  }
-
-  if (p === "denied" || p === "unsupported"){
-    pushnote.setAttribute("data-show", "false");
-    return true;
-  }
-
-  pushnote.setAttribute("data-show", "true"); // popup do Webpushr ainda na tela
-  return false;
-}
-
 window.addEventListener("load", function(){
   statusEl.textContent = "Toque no botão para abrir o Telegram.";
-
-  setTimeout(function(){
-    if (pintarAviso()) return;
-
-    let tentativas = 0;
-    const observa = setInterval(function(){
-      tentativas++;
-      if (pintarAviso() || tentativas >= 60) clearInterval(observa);
-    }, 1000);
-  }, 1200);
 });
 
 /* --------- clique manual --------- */
