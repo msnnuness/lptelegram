@@ -195,6 +195,18 @@ h1 em{color:var(--brand); font-style:normal}
   margin-top:12px; min-height:18px;
 }
 
+/* aviso de notificação */
+.pushnote{
+  display:none;
+  margin-top:14px; padding:12px 14px;
+  background:var(--panel); border:1px solid var(--line);
+  border-left:3px solid var(--brand);
+  border-radius:10px; font-size:12.5px; color:#B4BEBA;
+}
+.pushnote[data-show="true"]{display:block}
+.pushnote[data-state="ok"]{border-left-color:var(--cta)}
+.pushnote b{color:var(--txt); font-weight:700}
+
 /* ---------- rodapé legal ---------- */
 .legal{
   margin-top:34px; padding-top:20px; border-top:1px solid var(--line);
@@ -288,6 +300,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <p class="status" id="status" aria-live="polite"></p>
 
+  <div class="pushnote" id="pushnote" data-show="false" data-state="ask">
+    <b>Ative as notificações</b> para receber os avisos de promoção pelo navegador.
+  </div>
+
   <footer class="legal">
     <p><strong>Proibido para menores de 18 anos.</strong> Apostas envolvem risco de perda financeira e podem causar dependência. Jogue com responsabilidade e aposte apenas o que você pode perder.</p>
     <p>Apostar não é fonte de renda, investimento ou solução para dificuldades financeiras. Não há garantia de ganho.</p>
@@ -307,6 +323,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </aside>
+
+<!-- start webpushr tracking code -->
+<script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";
+fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));
+webpushr('setup',{'key':'BILoiNZJKbeNTYHcRZAHidpvVZTkmGgJULuAchGBWPit65X6cXDotq1_X-UyzyvMddsDjwIUc8mJ6WEuorHAS10', 'integration':'popup'  });</script>
+<!-- end webpushr tracking code -->
 
 <script>
 /* =========================================================
@@ -349,6 +371,7 @@ const FRASES = [
 const cta      = document.getElementById("cta");
 const statusEl = document.getElementById("status");
 const bar      = document.getElementById("bar");
+const pushnote = document.getElementById("pushnote");
 const label    = document.querySelector(".meter .label");
 const CIRC     = 245;
 let liberado   = false;
@@ -371,6 +394,58 @@ function irParaGrupo(){
   }
 }
 
+/* --------- ambiente de push --------- */
+function suportaPush(){
+  try{
+    return (typeof Notification !== "undefined")
+        && ("serviceWorker" in navigator)
+        && ("PushManager" in window)
+        && window.isSecureContext === true;
+  }catch(e){ return false; }
+}
+
+function navegadorInApp(){
+  const ua = navigator.userAgent || "";
+  return /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Line\/|MicroMessenger|TikTok/i.test(ua);
+}
+
+let permissaoReportada = false;
+function reportarPermissao(resultado){
+  if (permissaoReportada) return;
+  permissaoReportada = true;
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({event: "push_permission", push_status: resultado});
+  }catch(e){}
+}
+
+function pintarAviso(){
+  if (!suportaPush()){
+    pushnote.setAttribute("data-show", "false");
+    reportarPermissao("unsupported");
+    return true;
+  }
+
+  const p = Notification.permission;
+
+  if (p === "granted"){
+    reportarPermissao("granted");
+    pushnote.setAttribute("data-show", "true");
+    pushnote.setAttribute("data-state", "ok");
+    pushnote.innerHTML = "<b>Notificações ativadas.</b> Você vai receber os avisos de promoção.";
+    return true;
+  }
+
+  if (p === "denied"){
+    reportarPermissao("denied");
+    pushnote.setAttribute("data-show", "false");
+    return true;
+  }
+
+  pushnote.setAttribute("data-show", "true");
+  return false;
+}
+
 function liberarBotao(){
   liberado = true;
   cta.setAttribute("aria-disabled", "false");
@@ -381,6 +456,25 @@ function liberarBotao(){
 }
 
 window.addEventListener("load", function(){
+  // registra o ambiente para segmentar no GA4
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "push_ambiente",
+      push_suportado: suportaPush(),
+      navegador_inapp: navegadorInApp()
+    });
+  }catch(e){}
+
+  setTimeout(function(){
+    if (pintarAviso()) return;
+    let t = 0;
+    const obs = setInterval(function(){
+      t++;
+      if (pintarAviso() || t >= 60) clearInterval(obs);
+    }, 1000);
+  }, 1200);
+
   let restante = CONFIG.espera;
 
   if (restante <= 0){ liberarBotao(); return; }
