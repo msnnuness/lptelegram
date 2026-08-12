@@ -132,8 +132,15 @@ body::before{
 .tile--tg b{color:var(--txt)}
 
 .meter{position:relative; width:86px; height:86px; flex:none}
-.meter svg{display:block}
-.meter circle{fill:none; stroke:var(--line); stroke-width:5}
+.meter svg{display:block; transform:rotate(-90deg)}
+.meter circle{fill:none; stroke-width:5; stroke-linecap:round}
+.meter .track{stroke:var(--line)}
+.meter .bar{
+  stroke:var(--cta);
+  stroke-dasharray:245;
+  stroke-dashoffset:245;
+  transition:stroke-dashoffset 1s linear;
+}
 .meter .label{
   position:absolute; inset:0;
   display:flex; align-items:center; justify-content:center;
@@ -176,6 +183,12 @@ h1 em{color:var(--brand); font-style:normal}
 }
 .cta:hover{background:var(--cta-dark)}
 .cta:active{transform:translateY(1px)}
+.cta[aria-disabled="true"]{
+  background:var(--panel); color:#6B7672;
+  border:1px solid var(--line); cursor:not-allowed;
+}
+.cta[aria-disabled="true"]:hover{background:var(--panel)}
+.cta[aria-disabled="true"]:active{transform:none}
 
 .status{
   text-align:center; font-size:12.5px; color:var(--muted);
@@ -251,7 +264,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="meter">
       <svg width="86" height="86" viewBox="0 0 86 86">
-        <circle cx="43" cy="43" r="39"></circle>
+        <circle class="track" cx="43" cy="43" r="39"></circle>
+        <circle class="bar" id="bar" cx="43" cy="43" r="39"></circle>
       </svg>
       <div class="label">VS</div>
     </div>
@@ -270,7 +284,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <li><div><b>Canal de atendimento e jogo responsável</b><small>Orientação sobre limites de depósito, pausa e autoexclusão.</small></div></li>
   </ul>
 
-  <a href="https://t.me/promosversusbet" class="cta" id="cta" role="button">Entrar no grupo do Telegram</a>
+  <a href="https://t.me/promosversusbet" class="cta" id="cta" role="button" aria-disabled="true">Aguarde…</a>
 
   <p class="status" id="status" aria-live="polite"></p>
 
@@ -302,6 +316,9 @@ const CONFIG = {
   // Link do grupo
   telegramUrl: "https://t.me/promosversusbet",
 
+  // Segundos de espera antes de liberar o botão
+  espera: 5,
+
   // Abrir o Telegram em nova aba (mantém esta página aberta)
   novaAba: false,
 
@@ -331,6 +348,10 @@ const FRASES = [
 /* --------- elementos --------- */
 const cta      = document.getElementById("cta");
 const statusEl = document.getElementById("status");
+const bar      = document.getElementById("bar");
+const label    = document.querySelector(".meter .label");
+const CIRC     = 245;
+let liberado   = false;
 
 cta.setAttribute("href", CONFIG.telegramUrl);
 
@@ -350,13 +371,42 @@ function irParaGrupo(){
   }
 }
 
-window.addEventListener("load", function(){
+function liberarBotao(){
+  liberado = true;
+  cta.setAttribute("aria-disabled", "false");
+  cta.textContent = "Entrar no grupo do Telegram";
   statusEl.textContent = "Toque no botão para abrir o Telegram.";
+  label.textContent = "VS";
+  bar.style.strokeDashoffset = 0;
+}
+
+window.addEventListener("load", function(){
+  let restante = CONFIG.espera;
+
+  if (restante <= 0){ liberarBotao(); return; }
+
+  cta.textContent = "Aguarde " + restante + "s";
+  label.textContent = restante;
+  statusEl.textContent = "O botão será liberado em instantes.";
+  bar.style.strokeDashoffset = CIRC;
+
+  const conta = setInterval(function(){
+    restante--;
+    if (restante <= 0){
+      clearInterval(conta);
+      liberarBotao();
+      return;
+    }
+    cta.textContent = "Aguarde " + restante + "s";
+    label.textContent = restante;
+    bar.style.strokeDashoffset = CIRC * (restante / CONFIG.espera);
+  }, 1000);
 });
 
 /* --------- clique manual --------- */
 cta.addEventListener("click", function(e){
   e.preventDefault();
+  if (!liberado) return;
   irParaGrupo();
 });
 </script>
