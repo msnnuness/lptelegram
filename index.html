@@ -1,422 +1,714 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Grupo oficial no Telegram | Versus Bet</title>
-<meta name="description" content="Canal oficial de comunicação da Versus Bet no Telegram. Conteúdo destinado exclusivamente a maiores de 18 anos.">
-<meta name="theme-color" content="#000000">
-
-<!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PCSMPZD6');</script>
-<!-- End Google Tag Manager -->
-
+<title>Camada — revista de beleza</title>
+<meta name="description" content="Camada é uma revista sobre cosméticos: o que os ingredientes fazem, o que a rotina precisa e o que dá para ignorar.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400&family=Karla:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-/* =========================================================
-   PALETA VERSUS BET
-   --brand = aqua da logo VS
-   --cta   = verde-limão dos botões (REGISTRAR / APOSTE AQUI)
-   ========================================================= */
-:root{
-  --brand:      #2DE8C9;
-  --brand-dark: #16C7A9;
-  --cta:        #DFFF3E;
-  --cta-dark:   #C9EB25;
-  --cta-text:   #0A0F0D;
+  :root{
+    --paper:#F7F2F0;
+    --sand:#EDE2DC;
+    --ink:#241A20;
+    --ink-soft:#6B5A61;
+    --berry:#B93A57;
+    --sage:#7E8F79;
+    --rule:#D9CCC6;
+    --display:"Bodoni Moda", "Didot", Georgia, serif;
+    --text:"Karla", "Helvetica Neue", Arial, sans-serif;
+  }
 
-  --ink:   #000000;
-  --panel: #0C100F;
-  --line:  #1E2724;
-  --txt:   #FFFFFF;
-  --muted: #8B9691;
+  *{box-sizing:border-box}
 
-  --warn-bg: #FFFFFF;
-  --warn-tx: #0A0A0A;
+  html{-webkit-text-size-adjust:100%}
 
-  --radius: 16px;
-}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--text);
+    font-size:17px;
+    line-height:1.6;
+    font-weight:400;
+  }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  a{color:inherit}
 
-html{-webkit-text-size-adjust:100%}
+  :focus-visible{
+    outline:2px solid var(--berry);
+    outline-offset:3px;
+  }
 
-body{
-  background:var(--ink);
-  color:var(--txt);
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
-  line-height:1.55;
-  min-height:100vh;
-  padding-bottom:140px; /* espaço da tarja fixa de advertência */
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  overflow-x:hidden;
-}
+  .wrap{
+    width:100%;
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 24px;
+  }
 
-/* brilho verde do fundo, como no site */
-body::before{
-  content:"";
-  position:fixed; inset:0; z-index:0; pointer-events:none;
-  background:
-    radial-gradient(760px 420px at 50% -8%, rgba(45,232,201,.20), transparent 64%),
-    radial-gradient(520px 380px at 100% 22%, rgba(22,199,169,.12), transparent 66%);
-}
+  /* ---------- topo ---------- */
 
-.wrap{
-  position:relative; z-index:1;
-  width:100%; max-width:560px;
-  padding:26px 20px 40px;
-}
+  .masthead{
+    border-bottom:1px solid var(--rule);
+  }
 
-/* ---------- topo ---------- */
-.brandbar{
-  display:flex; align-items:center; justify-content:space-between;
-  gap:12px; margin-bottom:36px;
-}
-.lockup{display:flex; align-items:center; gap:10px}
-/* Troque o bloco .mark + .wordmark por: <img src="logo.svg" alt="Versus Bet" height="28"> */
-.mark{
-  font-family:'Anton',Impact,sans-serif; font-size:26px;
-  color:var(--brand); letter-spacing:-1px; line-height:1;
-}
-.wordmark{
-  font-family:'Anton',Impact,sans-serif;
-  font-size:19px; letter-spacing:1.6px; text-transform:uppercase; line-height:1;
-}
-.wordmark small{
-  display:block; font-family:'Inter',sans-serif; font-weight:700;
-  font-size:8.5px; letter-spacing:2.2px; color:var(--muted); margin-top:3px;
-}
+  .masthead-inner{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:24px;
+    padding:26px 0 18px;
+    flex-wrap:wrap;
+  }
 
-.age-chip{
-  font-size:11px; font-weight:900; letter-spacing:.8px;
-  border:1.5px solid var(--brand); color:var(--brand);
-  border-radius:999px; padding:5px 11px; white-space:nowrap;
-}
+  .wordmark{
+    font-family:var(--display);
+    font-size:34px;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    line-height:1;
+    text-decoration:none;
+  }
 
-/* ---------- marca x telegram ---------- */
-.faceoff{
-  display:grid;
-  grid-template-columns:1fr auto 1fr;
-  align-items:center;
-  gap:10px;
-  margin-bottom:32px;
-}
-.tile{
-  background:var(--panel);
-  border:1px solid var(--line);
-  border-radius:var(--radius);
-  padding:22px 10px;
-  text-align:center;
-}
-.tile--brand{border-top:3px solid var(--brand)}
-.tile--tg{border-top:3px solid #2F3A36}
-.tile span{
-  display:block; font-size:10.5px; letter-spacing:1.4px;
-  text-transform:uppercase; color:var(--muted); margin-top:8px;
-}
-.tile b{
-  font-family:'Anton',Impact,sans-serif; font-weight:400;
-  font-size:22px; letter-spacing:.5px;
-}
-.tile--brand b{color:var(--brand)}
-.tile--tg b{color:var(--txt)}
+  .wordmark span{
+    display:block;
+    font-family:var(--text);
+    font-size:11px;
+    font-weight:400;
+    letter-spacing:.08em;
+    text-transform:none;
+    color:var(--ink-soft);
+    margin-top:8px;
+  }
 
-.meter{position:relative; width:86px; height:86px; flex:none}
-.meter svg{display:block; transform:rotate(-90deg)}
-.meter circle{fill:none; stroke-width:5; stroke-linecap:round}
-.meter .track{stroke:var(--line)}
-.meter .bar{
-  stroke:var(--cta);
-  stroke-dasharray:245;
-  stroke-dashoffset:245;
-  transition:stroke-dashoffset 1s linear;
-}
-.meter .label{
-  position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Anton',Impact,sans-serif; font-size:25px;
-  color:var(--cta);
-}
+  .nav{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    font-size:15px;
+  }
 
-/* ---------- texto ---------- */
-h1{
-  font-family:'Anton',Impact,sans-serif; font-weight:400;
-  font-size:clamp(30px,8.4vw,40px);
-  line-height:1.02; text-transform:uppercase; letter-spacing:.5px;
-  margin-bottom:14px;
-}
-h1 em{color:var(--brand); font-style:normal}
-.lead{color:#C3CCC8; font-size:15.5px; margin-bottom:24px}
+  .nav a{
+    text-decoration:none;
+    padding-bottom:3px;
+    border-bottom:1px solid transparent;
+  }
 
-.list{list-style:none; display:grid; gap:1px; background:var(--line);
-  border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-bottom:26px}
-.list li{
-  background:var(--panel); padding:14px 16px;
-  font-size:14.5px; display:flex; gap:12px; align-items:flex-start;
-}
-.list li::before{
-  content:""; flex:none; width:3px; height:17px; margin-top:3px;
-  background:var(--brand); border-radius:2px;
-}
-.list li b{font-weight:700}
-.list li small{display:block; color:var(--muted); font-size:12.5px; margin-top:2px}
+  .nav a:hover,
+  .nav a[aria-current="page"]{
+    border-bottom-color:var(--berry);
+    color:var(--berry);
+  }
 
-/* ---------- cta (verde-limão da plataforma) ---------- */
-.cta{
-  display:block; width:100%; border:0; cursor:pointer;
-  background:var(--cta); color:var(--cta-text);
-  font-family:'Inter',sans-serif; font-weight:900; font-size:17px;
-  letter-spacing:.3px; text-transform:uppercase;
-  padding:19px 16px; border-radius:12px;
-  text-align:center; text-decoration:none;
-  transition:background .18s ease, transform .12s ease;
-}
-.cta:hover{background:var(--cta-dark)}
-.cta:active{transform:translateY(1px)}
-.cta[aria-disabled="true"]{
-  background:var(--panel); color:#6B7672;
-  border:1px solid var(--line); cursor:not-allowed;
-}
-.cta[aria-disabled="true"]:hover{background:var(--panel)}
-.cta[aria-disabled="true"]:active{transform:none}
+  /* ---------- capa ---------- */
 
-.status{
-  text-align:center; font-size:12.5px; color:var(--muted);
-  margin-top:12px; min-height:18px;
-}
+  .cover{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:56px;
+    align-items:center;
+    padding:64px 0 72px;
+    border-bottom:1px solid var(--rule);
+  }
 
-/* ---------- rodapé legal ---------- */
-.legal{
-  margin-top:34px; padding-top:20px; border-top:1px solid var(--line);
-  font-size:11.5px; line-height:1.7; color:var(--muted);
-}
-.legal p+p{margin-top:9px}
-.legal strong{color:#B4BEBA}
-.legal a{color:var(--muted)}
+  .cover-kicker{
+    font-size:14px;
+    color:var(--berry);
+    margin:0 0 18px;
+  }
 
-/* ---------- tarja de advertência (mín. 10% da peça) ---------- */
-.warning{
-  position:fixed; left:0; right:0; bottom:0; z-index:50;
-  background:var(--warn-bg); color:var(--warn-tx);
-  border-top:4px solid var(--brand);
-  padding:14px 16px;
-}
-.warnrow{
-  display:flex; align-items:center; justify-content:center; gap:12px;
-  max-width:560px; margin:0 auto;
-}
-.badge18{
-  flex:none; width:44px; height:44px; border-radius:50%;
-  border:2.5px solid var(--warn-tx);
-  display:flex; align-items:center; justify-content:center;
-  font-weight:900; font-size:15px; letter-spacing:-.5px;
-}
-.warntext p{
-  font-weight:900; text-transform:uppercase;
-  font-size:clamp(12.5px,3.4vw,15px); line-height:1.3; letter-spacing:.2px;
-}
-.warntext small{
-  display:block; margin-top:4px; font-weight:700;
-  font-size:10.5px; text-transform:uppercase; letter-spacing:.3px; color:#3A3A3A;
-}
+  .cover h1{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(40px,6.2vw,74px);
+    line-height:1.02;
+    letter-spacing:-.015em;
+    margin:0 0 22px;
+  }
 
-:focus-visible{outline:3px solid var(--cta); outline-offset:3px; border-radius:4px}
+  .cover h1 em{
+    font-style:italic;
+  }
 
-@media (prefers-reduced-motion:reduce){
-  *{transition:none !important}
-}
-@media (max-width:360px){
-  .tile b{font-size:18px}
-  .meter{width:74px;height:74px}
-  .badge18{width:38px;height:38px;font-size:13px}
-}
+  .cover-dek{
+    font-size:19px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    max-width:46ch;
+    margin:0 0 26px;
+  }
+
+  .byline{
+    font-size:14px;
+    color:var(--ink-soft);
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    align-items:center;
+  }
+
+  .byline strong{
+    color:var(--ink);
+    font-weight:500;
+  }
+
+  /* swatch: mancha de creme desenhada em CSS */
+
+  .swatch{
+    position:relative;
+    aspect-ratio:4/5;
+    border-radius:58% 42% 47% 53% / 52% 58% 42% 48%;
+    overflow:hidden;
+  }
+
+  .swatch::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(120% 80% at 22% 18%, rgba(255,255,255,.72), rgba(255,255,255,0) 58%),
+      radial-gradient(90% 70% at 78% 88%, rgba(0,0,0,.16), rgba(0,0,0,0) 60%);
+    mix-blend-mode:soft-light;
+  }
+
+  .swatch-cover{
+    background:linear-gradient(148deg,#E9B7A4 0%,#C9737E 46%,#7E4B63 100%);
+    box-shadow:0 30px 60px -30px rgba(60,25,40,.55);
+  }
+
+  .swatch-cover-label{
+    position:absolute;
+    left:50%;
+    bottom:-14px;
+    transform:translateX(-50%);
+    z-index:2;
+    background:var(--paper);
+    border:1px solid var(--rule);
+    border-radius:999px;
+    padding:7px 16px;
+    font-size:13px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+
+  .cover-art{
+    position:relative;
+    animation:rise .9s cubic-bezier(.2,.7,.3,1) both;
+  }
+
+  @keyframes rise{
+    from{opacity:0;transform:translateY(22px) rotate(-3deg)}
+    to{opacity:1;transform:none}
+  }
+
+  /* ---------- seções ---------- */
+
+  .section{
+    padding:64px 0;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:38px;
+    flex-wrap:wrap;
+  }
+
+  .section-head h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:32px;
+    margin:0;
+    letter-spacing:-.01em;
+  }
+
+  .section-head p{
+    margin:0;
+    font-size:15px;
+    color:var(--ink-soft);
+    max-width:38ch;
+  }
+
+  /* ---------- destaques ---------- */
+
+  .stories{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:38px;
+  }
+
+  .story{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .story .swatch{
+    aspect-ratio:5/4;
+    border-radius:46% 54% 52% 48% / 50% 46% 54% 50%;
+  }
+
+  .story-1 .swatch{background:linear-gradient(140deg,#F0DCC4,#C79B6E 55%,#8A6440)}
+  .story-2 .swatch{background:linear-gradient(140deg,#DCE6DA,#9DB395 52%,#5F7659)}
+  .story-3 .swatch{background:linear-gradient(140deg,#F3D7DD,#D07E92 50%,#8C4257)}
+
+  .tag{
+    font-size:13px;
+    color:var(--sage);
+    letter-spacing:.02em;
+  }
+
+  .story-2 .tag{color:var(--berry)}
+
+  .story h3{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:23px;
+    line-height:1.22;
+    margin:0;
+  }
+
+  .story h3 a{text-decoration:none}
+  .story h3 a:hover{color:var(--berry)}
+
+  .story p{
+    margin:0;
+    font-size:15.5px;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+
+  /* ---------- leituras rápidas ---------- */
+
+  .quick{
+    margin-top:60px;
+    padding-top:34px;
+    border-top:2px solid var(--ink);
+  }
+
+  .quick h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:26px;
+    margin:0 0 24px;
+  }
+
+  .quick ol{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:0 46px;
+  }
+
+  .quick li{
+    border-top:1px solid var(--rule);
+    padding:18px 0;
+  }
+
+  .quick li:first-child,
+  .quick li:nth-child(2){border-top:none;padding-top:0}
+
+  .quick a{
+    text-decoration:none;
+    font-size:17.5px;
+    font-weight:500;
+    line-height:1.35;
+    display:block;
+  }
+
+  .quick a:hover{color:var(--berry)}
+
+  .quick .meta{
+    display:block;
+    margin-top:7px;
+    font-size:13.5px;
+    color:var(--ink-soft);
+    font-weight:400;
+  }
+
+  /* ---------- rotina em camadas ---------- */
+
+  .routine{
+    background:var(--sand);
+    border-radius:4px;
+  }
+
+  .routine-inner{
+    padding:56px 0 60px;
+  }
+
+  .steps{
+    counter-reset:step;
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:26px;
+  }
+
+  .steps li{
+    counter-increment:step;
+    padding-top:16px;
+    border-top:1px solid rgba(36,26,32,.22);
+  }
+
+  .steps li::before{
+    content:counter(step);
+    font-family:var(--display);
+    font-size:15px;
+    color:var(--berry);
+    display:block;
+    margin-bottom:10px;
+  }
+
+  .steps h3{
+    font-family:var(--text);
+    font-size:16px;
+    font-weight:700;
+    margin:0 0 8px;
+  }
+
+  .steps p{
+    margin:0;
+    font-size:14.5px;
+    line-height:1.5;
+    color:#54454B;
+  }
+
+  .routine-note{
+    margin:36px 0 0;
+    font-size:15px;
+    color:#54454B;
+    max-width:60ch;
+  }
+
+  /* ---------- ingrediente ---------- */
+
+  .ingredient{
+    display:grid;
+    grid-template-columns:.9fr 1.1fr;
+    gap:56px;
+    align-items:center;
+  }
+
+  .ingredient .swatch{
+    aspect-ratio:1;
+    border-radius:52% 48% 44% 56% / 47% 53% 47% 53%;
+    background:linear-gradient(150deg,#FBF3E4,#E6CE9C 50%,#B79A55);
+    box-shadow:0 26px 50px -28px rgba(90,70,30,.6);
+  }
+
+  .ingredient h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(30px,4vw,44px);
+    line-height:1.08;
+    margin:0 0 18px;
+  }
+
+  .ingredient > div > p{
+    color:var(--ink-soft);
+    max-width:48ch;
+    margin:0 0 28px;
+  }
+
+  .facts{
+    margin:0;
+    border-top:1px solid var(--rule);
+  }
+
+  .facts div{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:16px;
+    padding:13px 0;
+    border-bottom:1px solid var(--rule);
+    font-size:15.5px;
+  }
+
+  .facts dt{
+    color:var(--ink-soft);
+  }
+
+  .facts dd{
+    margin:0;
+  }
+
+  /* ---------- newsletter ---------- */
+
+  .method{
+    background:var(--ink);
+    color:var(--paper);
+    padding:58px 0 62px;
+  }
+
+  .method-inner{
+    display:grid;
+    grid-template-columns:.85fr 1.15fr;
+    gap:48px;
+  }
+
+  .method h2{
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(28px,3.6vw,40px);
+    line-height:1.1;
+    margin:0 0 14px;
+  }
+
+  .method p{
+    margin:0;
+    color:#C6B6BC;
+    font-size:16px;
+    line-height:1.65;
+    max-width:52ch;
+  }
+
+  /* ---------- rodapé ---------- */
+
+  .footer{
+    padding:44px 0 60px;
+    font-size:14.5px;
+    color:var(--ink-soft);
+  }
+
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+
+  .footer nav{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+
+  .footer a{text-decoration:none}
+  .footer a:hover{color:var(--berry)}
+
+  /* ---------- responsivo ---------- */
+
+  @media (max-width:900px){
+    .cover{
+      grid-template-columns:1fr;
+      gap:44px;
+      padding:44px 0 56px;
+    }
+    .cover-art{order:-1;max-width:340px}
+    .stories{grid-template-columns:1fr;gap:44px}
+    .story .swatch{max-width:400px}
+    .quick ol{grid-template-columns:1fr;gap:0}
+    .quick li:nth-child(2){border-top:1px solid var(--rule);padding-top:18px}
+    .steps{grid-template-columns:repeat(2,1fr)}
+    .ingredient{grid-template-columns:1fr;gap:36px}
+    .ingredient .swatch{max-width:300px}
+    .method-inner{grid-template-columns:1fr;gap:24px}
+    .facts div{grid-template-columns:1fr;gap:2px}
+  }
+
+  @media (max-width:560px){
+    body{font-size:16px}
+    .masthead-inner{padding-bottom:14px}
+    .nav{gap:16px;font-size:14px}
+    .steps{grid-template-columns:1fr}
+    .section{padding:48px 0}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .cover-art{animation:none}
+    *{transition:none !important}
+  }
 </style>
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PCSMPZD6"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<header class="masthead">
+  <div class="wrap masthead-inner">
+    <a class="wordmark" href="#">Camada
+      <span>Revista de beleza e cosméticos</span>
+    </a>
+    <nav class="nav" aria-label="Seções">
+      <a href="#pauta" aria-current="page">Em pauta</a>
+      <a href="#rotina">Rotina</a>
+      <a href="#ingrediente">Ingredientes</a>
+      <a href="#pauta">Maquiagem</a>
+      <a href="#pauta">Perfume</a>
+    </nav>
+  </div>
+</header>
 
-<main class="wrap">
+<main>
 
-  <header class="brandbar">
-    <div class="lockup">
-      <div class="mark">VS</div>
-      <div class="wordmark">VERSUS<small>CASA DE APOSTAS OFICIAL</small></div>
+  <article class="wrap cover">
+    <div>
+      <p class="cover-kicker">Reportagem de capa</p>
+      <h1>O bakuchiol é mesmo um <em>retinol vegetal</em>?</h1>
+      <p class="cover-dek">O ingrediente virou atalho para quem não tolera retinoides. Fomos atrás do que os estudos mostram, do que as marcas prometem a mais e de como saber se ele faz sentido para a sua pele.</p>
+      <p class="byline"><strong>Helena Vasques</strong> <span>9 de setembro de 2026</span> <span>11 min de leitura</span></p>
     </div>
-    <div class="age-chip">+18</div>
-  </header>
+    <div class="cover-art">
+      <div class="swatch swatch-cover" role="img" aria-label="Mancha de creme em degradê rosado"></div>
+      <span class="swatch-cover-label">Textura sérum, absorção rápida</span>
+    </div>
+  </article>
 
-  <section class="faceoff" aria-hidden="true">
-    <div class="tile tile--brand"><b>VERSUS</b><span>sua conta</span></div>
-
-    <div class="meter">
-      <svg width="86" height="86" viewBox="0 0 86 86">
-        <circle class="track" cx="43" cy="43" r="39"></circle>
-        <circle class="bar" id="bar" cx="43" cy="43" r="39"></circle>
-      </svg>
-      <div class="label">VS</div>
+  <section class="wrap section" id="pauta">
+    <div class="section-head">
+      <h2>Em pauta esta semana</h2>
+      <p>Três leituras longas sobre o que está na prateleira e o que sobra de conversa.</p>
     </div>
 
-    <div class="tile tile--tg"><b>TELEGRAM</b><span>grupo oficial</span></div>
+    <div class="stories">
+      <article class="story story-1">
+        <div class="swatch" role="img" aria-label="Mancha de base em tom bege dourado"></div>
+        <p class="tag">Maquiagem</p>
+        <h3><a href="#">Por que sua base oxida até o fim do dia</a></h3>
+        <p>Nem sempre é o tom errado. Pigmento, pH da pele e o primer embaixo explicam boa parte do desvio alaranjado.</p>
+      </article>
+
+      <article class="story story-2">
+        <div class="swatch" role="img" aria-label="Mancha de gel em tom verde acinzentado"></div>
+        <p class="tag">Skincare</p>
+        <h3><a href="#">Protetor solar em bastão funciona para reaplicar?</a></h3>
+        <p>Testamos oito formatos ao longo de um dia de trabalho. O bastão ganha na praticidade e perde na quantidade aplicada.</p>
+      </article>
+
+      <article class="story story-3">
+        <div class="swatch" role="img" aria-label="Mancha de batom em tom rosa framboesa"></div>
+        <p class="tag">Consumo</p>
+        <h3><a href="#">O batom de R$ 39 e o de R$ 190 são a mesma coisa?</a></h3>
+        <p>Comparamos ingredientes, pigmentação e duração de dez batons. O preço explica menos do que a embalagem sugere.</p>
+      </article>
+    </div>
+
+    <div class="quick">
+      <h2>Leituras rápidas</h2>
+      <ol>
+        <li>
+          <a href="#">Vitamina C e niacinamida podem, sim, dividir a mesma rotina
+            <span class="meta">Ingredientes · 4 min</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">Como ler uma lista INCI sem decorar nome de química
+            <span class="meta">Guia · 6 min</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">Xampu sem sulfato limpa menos — e quando isso é bom
+            <span class="meta">Cabelo · 5 min</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">Validade de cosmético aberto: o símbolo do potinho explicado
+            <span class="meta">Consumo · 3 min</span>
+          </a>
+        </li>
+      </ol>
+    </div>
   </section>
 
-  <h1>Entre no <em>grupo oficial</em> da Versus no Telegram</h1>
+  <section class="section routine" id="rotina">
+    <div class="wrap routine-inner">
+      <div class="section-head">
+        <h2>A rotina em cinco camadas</h2>
+        <p>A ordem importa mais que a quantidade de produtos. Do mais fluido ao mais oclusivo.</p>
+      </div>
 
-  <p class="lead">Canal de comunicação da Versus Bet. Conteúdo exclusivo para maiores de 18 anos.</p>
+      <ol class="steps">
+        <li>
+          <h3>Limpeza</h3>
+          <p>Água morna e um sabonete que não deixe a pele repuxando. Duas vezes ao dia já basta.</p>
+        </li>
+        <li>
+          <h3>Ativo aquoso</h3>
+          <p>Sérum de textura leve — vitamina C pela manhã, ácidos à noite, nunca os dois juntos no começo.</p>
+        </li>
+        <li>
+          <h3>Hidratante</h3>
+          <p>Sela a água que veio antes. Pele oleosa pede gel-creme; pele seca aguenta algo mais denso.</p>
+        </li>
+        <li>
+          <h3>Protetor solar</h3>
+          <p>Só de manhã, e é o passo que sustenta todos os outros. Reaplicar a cada duas ou três horas de exposição.</p>
+        </li>
+        <li>
+          <h3>Oclusivo</h3>
+          <p>Opcional e noturno. Uma camada fina de bálsamo por cima quando a pele está descamando.</p>
+        </li>
+      </ol>
 
-  <ul class="list">
-    <li><div><b>Promoções divulgadas diariamente</b><small>Cada promoção tem regulamento próprio, com prazo e condições de participação.</small></div></li>
-    <li><div><b>Sorteios com regulamento publicado</b><small>Participação gratuita e voluntária, sujeita às regras de cada ação.</small></div></li>
-    <li><div><b>Avisos de manutenção e novidades da plataforma</b><small>Comunicados oficiais direto da equipe.</small></div></li>
-    <li><div><b>Canal de atendimento e jogo responsável</b><small>Orientação sobre limites de depósito, pausa e autoexclusão.</small></div></li>
-  </ul>
+      <p class="routine-note">Começando agora? Fique só na limpeza, no hidratante e no protetor por três semanas. Introduza um ativo por vez — se aparecer ardência ou vermelhidão, você sabe exatamente de quem foi a culpa.</p>
+    </div>
+  </section>
 
-  <a href="https://t.me/promosversusbet" class="cta" id="cta" role="button" aria-disabled="true">Aguarde…</a>
+  <section class="wrap section ingredient" id="ingrediente">
+    <div class="swatch" role="img" aria-label="Mancha de creme em tom dourado claro"></div>
+    <div>
+      <h2>Ingrediente do mês: niacinamida</h2>
+      <p>Uma forma de vitamina B3 que ficou popular por fazer várias coisas razoavelmente bem: controla o brilho, ameniza marcas de acne e reforça a barreira da pele. É bem tolerada, o que a torna um bom primeiro ativo.</p>
+      <dl class="facts">
+        <div>
+          <dt>Concentração útil</dt>
+          <dd>Entre 2% e 5%. Acima disso o ganho é pequeno e a irritação aumenta.</dd>
+        </div>
+        <div>
+          <dt>Indicada para</dt>
+          <dd>Pele oleosa, com poros visíveis ou manchas pós-acne.</dd>
+        </div>
+        <div>
+          <dt>Combina bem com</dt>
+          <dd>Ácido hialurônico, ceramidas, zinco e também vitamina C.</dd>
+        </div>
+        <div>
+          <dt>Cuidado</dt>
+          <dd>Junto de ácidos fortes na mesma aplicação pode arder. Alterne os horários.</dd>
+        </div>
+        <div>
+          <dt>Quando esperar efeito</dt>
+          <dd>Oleosidade em duas a quatro semanas; manchas levam de oito a doze.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
 
-  <p class="status" id="status" aria-live="polite"></p>
-
-  <footer class="legal">
-    <p><strong>Proibido para menores de 18 anos.</strong> Apostas envolvem risco de perda financeira e podem causar dependência. Jogue com responsabilidade e aposte apenas o que você pode perder.</p>
-    <p>Apostar não é fonte de renda, investimento ou solução para dificuldades financeiras. Não há garantia de ganho.</p>
-    <p>Se as apostas estiverem afetando sua vida, você pode definir limites, pausar ou solicitar <a href="https://versus.bet.br/jogo-responsavel">autoexclusão</a> a qualquer momento. Apoio gratuito: <a href="https://jogadoresanonimos.com.br">Jogadores Anônimos Brasil</a>.</p>
-    <p>Versus Bet — <strong>[RAZÃO SOCIAL LTDA]</strong>, CNPJ <strong>[00.000.000/0001-00]</strong>. Autorizada pela <strong>Portaria SPA/MF nº 474/2025</strong>. <a href="https://versus.bet.br/termos">Termos de uso</a> · <a href="https://versus.bet.br/privacidade">Privacidade</a> · <a href="https://versus.bet.br/promocoes">Regulamento das promoções</a></p>
-    <p>Comunicação de caráter publicitário. Este grupo não é operado pelo Telegram.</p>
-  </footer>
+  <section class="method" id="method">
+    <div class="wrap method-inner">
+      <div>
+        <h2>Como a gente testa</h2>
+        <p>Cada produto citado passou por uso contínuo de pelo menos quatro semanas, na rotina real de quem escreve. Nada é avaliado só pela embalagem ou pela lista de ingredientes.</p>
+      </div>
+      <div>
+        <p>Compramos o que testamos. Quando uma marca envia amostra, isso aparece no rodapé do texto. Reportagem sobre eficácia se apoia em estudo publicado e revisado, com o link no corpo da matéria — e quando a evidência é fraca, o texto diz que é fraca.</p>
+      </div>
+    </div>
+  </section>
 
 </main>
 
-<aside class="warning" role="note">
-  <div class="warnrow">
-    <div class="badge18" aria-hidden="true">18+</div>
-    <div class="warntext">
-      <p id="mfWarning">Ministério da Fazenda adverte: Aposta não é investimento</p>
-      <small>Proibido para menores de 18 anos · Autorizada pela Portaria SPA/MF nº 474/2025</small>
-    </div>
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p style="margin:0">Camada · publicação independente sobre cosméticos</p>
+    <nav aria-label="Rodapé">
+      <a href="#">Quem escreve</a>
+      <a href="#method">Como testamos</a>
+      <a href="#">Arquivo</a>
+      <a href="#">Contato</a>
+    </nav>
   </div>
-</aside>
-
-<script>
-/* =========================================================
-   CONFIGURAÇÃO
-   ========================================================= */
-const CONFIG = {
-  // Link do grupo
-  telegramUrl: "https://t.me/promosversusbet",
-
-  // Segundos de espera antes de liberar o botão
-  espera: 5,
-
-  // Abrir o Telegram em nova aba (mantém esta página aberta)
-  novaAba: false,
-
-  // Advertência oficial (Portaria SPA/MF nº 1.964/2026).
-  // Use exatamente uma destas três:
-  //   "Apostar pode causar dependência"
-  //   "Apostar faz você perder dinheiro"
-  //   "Aposta não é investimento"
-  // Deixe "auto" para alternar entre as três a cada carregamento.
-  advertencia: "Aposta não é investimento"
-};
-
-/* --------- advertência --------- */
-const FRASES = [
-  "Apostar pode causar dependência",
-  "Apostar faz você perder dinheiro",
-  "Aposta não é investimento"
-];
-(function setWarning(){
-  const escolhida = CONFIG.advertencia === "auto"
-    ? FRASES[Math.floor(Math.random() * FRASES.length)]
-    : CONFIG.advertencia;
-  document.getElementById("mfWarning").textContent =
-    "Ministério da Fazenda adverte: " + escolhida;
-})();
-
-/* --------- elementos --------- */
-const cta      = document.getElementById("cta");
-const statusEl = document.getElementById("status");
-const bar      = document.getElementById("bar");
-const label    = document.querySelector(".meter .label");
-const CIRC     = 245;
-let liberado   = false;
-
-cta.setAttribute("href", CONFIG.telegramUrl);
-
-/* --------- tracking --------- */
-function track(){
-  try{ if (typeof fbq === "function") fbq("track", "Contact"); }catch(e){}
-  try{ if (typeof gtag === "function") gtag("event", "telegram_join"); }catch(e){}
-  try{ if (window.dataLayer) window.dataLayer.push({event:"telegram_join"}); }catch(e){}
-}
-
-function irParaGrupo(){
-  track();
-  if (CONFIG.novaAba){
-    window.open(CONFIG.telegramUrl, "_blank", "noopener");
-  } else {
-    window.location.href = CONFIG.telegramUrl;
-  }
-}
-
-function liberarBotao(){
-  liberado = true;
-  cta.setAttribute("aria-disabled", "false");
-  cta.textContent = "Entrar no grupo do Telegram";
-  statusEl.textContent = "Toque no botão para abrir o Telegram.";
-  label.textContent = "VS";
-  bar.style.strokeDashoffset = 0;
-}
-
-window.addEventListener("load", function(){
-  let restante = CONFIG.espera;
-
-  if (restante <= 0){ liberarBotao(); return; }
-
-  cta.textContent = "Aguarde " + restante + "s";
-  label.textContent = restante;
-  statusEl.textContent = "O botão será liberado em instantes.";
-  bar.style.strokeDashoffset = CIRC;
-
-  const conta = setInterval(function(){
-    restante--;
-    if (restante <= 0){
-      clearInterval(conta);
-      liberarBotao();
-      return;
-    }
-    cta.textContent = "Aguarde " + restante + "s";
-    label.textContent = restante;
-    bar.style.strokeDashoffset = CIRC * (restante / CONFIG.espera);
-  }, 1000);
-});
-
-/* --------- clique manual --------- */
-cta.addEventListener("click", function(e){
-  e.preventDefault();
-  if (!liberado) return;
-  irParaGrupo();
-});
-</script>
-
-<!-- Meta Pixel — cole aqui o snippet do pixel Versus, se for rastrear a entrada.
-<script>
-!function(f,b,e,v,n,t,s){...}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','SEU_PIXEL_ID'); fbq('track','PageView');
-</script>
--->
+</footer>
 
 </body>
 </html>
