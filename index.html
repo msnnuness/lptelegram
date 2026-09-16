@@ -204,6 +204,28 @@
     .item{padding:32px 30px}
   }
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '26501105179474515');
+fbq('track', 'PageView');
+fbq('track', 'InitiateCheckout');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=26501105179474515&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
 </head>
 <body>
 
@@ -298,7 +320,7 @@
     <div class="fecho">
       <h2>Gostou do conteúdo?</h2>
       <p>Acompanhe o PortalViator para mais matérias, curiosidades e a cobertura completa das rodadas.</p>
-      <a href="#">Ver mais no PortalViator</a>
+      <a href="#" id="cta-principal">Ver mais no PortalViator</a>
     </div>
 
   </div>
@@ -326,6 +348,16 @@
     btnMenu.setAttribute('aria-expanded', aberto ? 'true' : 'false');
     btnMenu.setAttribute('aria-label', aberto ? 'Fechar menu' : 'Abrir menu');
   });
+  var ctaPrincipal = document.getElementById('cta-principal');
+
+  if (ctaPrincipal) {
+    ctaPrincipal.addEventListener('click', function () {
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase');
+      }
+    });
+  }
+
 </script>
 
 </body>
